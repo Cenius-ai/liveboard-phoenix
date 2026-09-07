@@ -1,0 +1,7 @@
+{
+  "name": "live_board",
+  "private": true,
+  "dependencies": {
+    "sortablejs": "^1.15.6"
+  }
+}
