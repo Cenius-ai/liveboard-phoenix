@@ -1,0 +1,228 @@
+/* ═══════════════════════════════════════════════════════
+   LiveBoard — Terminal Mono Design System
+   ═══════════════════════════════════════════════════════ */
+
+/* ── CSS Custom Properties (Design Tokens) ─────── */
+:root {
+  --card: #14181c;
+  --ring: #3faff3;
+  --muted: #1e2226;
+  --accent: #3faff3;
+  --border: #2a2e33;
+  --primary: #3faff3;
+  --on-accent: #111111;
+  --secondary: #1e2226;
+  --background: #090d10;
+  --foreground: #eef0f3;
+  --on-primary: #111111;
+  --destructive: #c9302d;
+  --on-secondary: #eef0f3;
+  --on-destructive: #ffffff;
+  --card-foreground: #eef0f3;
+  --muted-foreground: #9a9fa5;
+
+  /* Label colors */
+  --label-blue: #3faff3;
+  --label-green: #27ae60;
+  --label-red: #c9302d;
+  --label-yellow: #f0c040;
+  --label-purple: #9b59b6;
+  --label-orange: #e67e22;
+}
+
+/* ── Reset & Base ──────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "SF Mono", "Fira Code", "Cascadia Code", "JetBrains Mono",
+    "IBM Plex Mono", "Consolas", "Courier New", monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  background-color: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* ── Typography ────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: inherit;
+  font-weight: 700;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  color: var(--foreground);
+}
+
+/* ── Focus ─────────────────────────────────────── */
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(63, 175, 243, 0.3);
+}
+
+/* ── Utility classes ───────────────────────────── */
+.font-mono {
+  font-family: "SF Mono", "Fira Code", "Cascadia Code", "JetBrains Mono",
+    "IBM Plex Mono", "Consolas", "Courier New", monospace;
+}
+
+.transition-colors {
+  transition-property: color, background-color, border-color;
+}
+
+.duration-150 {
+  transition-duration: 150ms;
+}
+
+/* ── Scrollbar ─────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-foreground);
+}
+
+/* ── SortableJS Drag Styles ────────────────────── */
+.sortable-ghost {
+  opacity: 0.4;
+  background: var(--muted) !important;
+  border-color: var(--accent) !important;
+}
+
+.sortable-drag {
+  opacity: 0.9;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  border-color: var(--accent) !important;
+  transform: rotate(2deg);
+}
+
+/* ── Form Elements ─────────────────────────────── */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="url"],
+input[type="number"],
+input[type="date"],
+textarea,
+select {
+  font-family: inherit;
+}
+
+::placeholder {
+  color: rgba(154, 159, 165, 0.5);
+}
+
+/* ── Responsive ────────────────────────────────── */
+@media (max-width: 640px) {
+  .hidden-on-mobile {
+    display: none !important;
+  }
+}
+
+@media (max-width: 390px) {
+  body {
+    font-size: 13px;
+  }
+}
+
+/* ── Animation: prefers-reduced-motion ─────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── Ghost section numerals ────────────────────── */
+.section-num {
+  position: absolute;
+  font-size: 6rem;
+  font-weight: 700;
+  color: var(--foreground);
+  opacity: 0.06;
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
+  top: -0.5rem;
+  left: -0.5rem;
+}
+
+/* ── Pulse glow (one element) ──────────────────── */
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 4px rgba(63, 175, 243, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 12px rgba(63, 175, 243, 0.4);
+  }
+}
+
+.glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+/* ── Accent glow bloom on focus ────────────────── */
+input:focus-visible,
+button:focus-visible,
+a:focus-visible {
+  box-shadow: 0 0 0 3px rgba(63, 175, 243, 0.3);
+  transition: box-shadow 150ms ease;
+}
+
+/* ── Tables (dense data style) ─────────────────── */
+table.dense {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.75rem;
+}
+
+table.dense th {
+  text-align: left;
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted-foreground);
+  font-weight: 600;
+}
+
+table.dense td {
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
