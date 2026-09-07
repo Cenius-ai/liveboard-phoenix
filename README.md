@@ -25,7 +25,7 @@ _Local clone? See [Quick start](#quick-start) below. cenius.ai is the zero-setup
 
 ## Architecture
 
-Open the repo and you'll find a complete Elixir/Phoenix application (84 files). Top-level layout: `assets/`, `config/`, `lib/`, `priv/`, `test/`. `install.sh` wires up dependencies and loads seed records; after it runs the app has real data to show. Step-by-step setup guide: [`INSTALL.md`](INSTALL.md).
+Open the repo and you'll find a complete Elixir/Phoenix application (71 files). Top-level layout: `assets/`, `config/`, `lib/`, `priv/`, `test/`. `install.sh` wires up dependencies and loads seed records; after it runs the app has real data to show. Step-by-step setup guide: [`INSTALL.md`](INSTALL.md).
 
 ## Quick start
 
